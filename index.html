@@ -1,11 +1,184 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <title>Zeitzeugen</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Zeitzeugen – wie damals, nur heute</title>
+  <meta name="description" content="Zeitzeugen kündigt sich an: eine neue Art, Geschichte zu erleben – emotional, kuratiert, zeitlich spürbar. Coming Soon." />
+  <meta name="theme-color" content="#0A0A0F" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    /* ===== Brand Color Pattern (Wichtigkeit links → rechts) ===== */
+    :root{
+      --c1:#FD42B2; /* primary */
+      --c2:#FF6CC7;
+      --c3:#FF98D6;
+      --c4:#FFC0E5;
+      --c5:#FFD9EF;
+      --c6:#FFEAF6; /* least */
+
+      --bg:#0A0A10;       /* Deep dark background */
+      --bg-2:#0F0F17;     /* Surface */
+      --ink:#F6F7FB;      /* Main text */
+      --muted:#B9C0CF;    /* Secondary */
+      --line:#1B1B24;     /* Hairline */
+    }
+    *,*::before,*::after{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1120px;margin:0 auto;padding:0 20px}
+
+    /* ===== Decorative background ===== */
+    .bg-orb{position:fixed;inset:auto -10% -20% -10%;height:70vh;pointer-events:none;filter:blur(70px);opacity:.25;z-index:-1;background:radial-gradient(60% 50% at 20% 30%, var(--c2), transparent 60%),radial-gradient(50% 45% at 70% 20%, var(--c1), transparent 60%),radial-gradient(60% 60% at 80% 80%, var(--c3), transparent 60%);}
+
+    /* ===== Top ribbon shows the pattern ===== */
+    .ribbon{display:grid;grid-template-columns:repeat(6,1fr);height:6px}
+    .ribbon i{display:block}
+    .ribbon i:nth-child(1){background:var(--c1)}
+    .ribbon i:nth-child(2){background:var(--c2)}
+    .ribbon i:nth-child(3){background:var(--c3)}
+    .ribbon i:nth-child(4){background:var(--c4)}
+    .ribbon i:nth-child(5){background:var(--c5)}
+    .ribbon i:nth-child(6){background:var(--c6)}
+
+    /* ===== Header ===== */
+    header{position:sticky;top:0;background:rgba(10,10,16,.6);backdrop-filter:saturate(140%) blur(8px);border-bottom:1px solid var(--line);z-index:20}
+    .nav{height:64px;display:flex;align-items:center;justify-content:space-between}
+    .brand{display:flex;align-items:center;gap:.7rem}
+    .badge{width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,var(--c1),var(--c2));display:grid;place-items:center;font-weight:800;color:#160413}
+    .wordmark{font-family:Montserrat,Inter,sans-serif;font-weight:800;letter-spacing:.2px}
+    .chip{border:1px solid var(--line);padding:.35rem .6rem;border-radius:999px;color:var(--muted);font-size:.78rem}
+
+    /* ===== Hero ===== */
+    .hero{padding:90px 0 42px;display:grid;grid-template-columns:1.2fr .8fr;gap:40px}
+    .eyebrow{display:inline-flex;gap:.4rem;align-items:center;font-size:.85rem;color:var(--muted)}
+    .dot{width:8px;height:8px;border-radius:999px;background:var(--c1)}
+    h1{font-family:Montserrat,Inter,sans-serif;font-weight:800;line-height:1.05;margin:.25rem 0 10px;font-size:clamp(2.1rem,4.6vw,3.6rem)}
+    .grad{background:linear-gradient(135deg,var(--c1) 0%, var(--c2) 50%, var(--c3) 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .lead{color:var(--muted);font-size:1.1rem;margin:6px 0 22px}
+
+    .cta{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:.55rem;border-radius:12px;padding:.9rem 1.15rem;border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.00));font-weight:700}
+    .btn.primary{border-color:transparent;background:linear-gradient(135deg,var(--c1),var(--c2));color:#160413}
+    .btn.ghost{color:var(--ink)}
+    .btn:focus{outline:2px solid var(--c3);outline-offset:2px}
+
+    /* Teaser block on the right (text-only) */
+    .teaser{align-self:center;border:1px solid var(--line);border-radius:16px;background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02));padding:20px}
+    .teaser h3{margin:0 0 6px;font-size:1rem;color:var(--c1);letter-spacing:.2px}
+    .teaser .card{border:1px solid var(--line);border-radius:12px;padding:12px 14px;background:rgba(255,255,255,.02)}
+    .teaser .meta{font-size:.78rem;color:var(--muted);margin-bottom:2px}
+
+    /* ===== Sections (Partner / Nutzer) ===== */
+    .section{padding:54px 0;border-top:1px solid var(--line)}
+    .section h2{font-family:Montserrat,Inter,sans-serif;font-size:1.6rem;margin:0 0 10px}
+
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .panel{position:relative;border-radius:16px;padding:18px 18px 18px 18px;background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.015));border:1px solid var(--line)}
+    .panel::before{content:"";position:absolute;inset:-1px;z-index:-1;border-radius:17px;background:linear-gradient(135deg,transparent 40%, rgba(253,66,178,.35) 100%)}
+    .panel h3{margin:.2rem 0 .5rem;font-size:1.05rem;color:var(--c1)}
+    .panel ul{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+    .panel li{color:var(--ink)}
+    .panel li span{color:var(--muted)}
+
+    /* ===== Coming soon ===== */
+    .coming{padding:64px 0;text-align:center}
+    .pill{display:inline-flex;gap:.5rem;align-items:center;background:rgba(253,66,178,.12);border:1px solid rgba(253,66,178,.35);color:var(--c1);padding:.45rem .75rem;border-radius:999px;font-weight:700}
+    .contact{margin-top:12px;font-weight:700}
+
+    /* ===== Footer ===== */
+    footer{border-top:1px solid var(--line);padding:26px 0;color:var(--muted);font-size:.92rem}
+
+    /* ===== Responsive ===== */
+    @media (max-width: 980px){
+      .hero{grid-template-columns:1fr}
+      .teaser{order:2}
+    }
+
+    /* Motion preferences */
+    @media (prefers-reduced-motion: no-preference){
+      .btn.primary{transition:transform .06s ease, box-shadow .25s ease}
+      .btn.primary:hover{transform:translateY(-1px);box-shadow:0 12px 28px rgba(253,66,178,.25)}
+    }
+  </style>
 </head>
 <body>
-  <h1>Willkommen bei Zeitzeugen!</h1>
-  <p>Bald erfährst du hier mehr über unser Projekt.</p>
+  <div class="bg-orb" aria-hidden="true"></div>
+  <div class="ribbon" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="badge">Z</div>
+        <div class="wordmark">Zeitzeugen</div>
+      </div>
+      <div class="chip">Start‑Up · App · Kultur</div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- HERO -->
+    <section class="hero">
+      <div>
+        <div class="eyebrow"><span class="dot"></span> Eine neue Art, Geschichte zu spüren</div>
+        <h1><span class="grad">Geschichte erleben – wie damals, nur heute.</span></h1>
+        <p class="lead">Wir denken historische Erlebnisse zeitlich – Kuratiert, fühlbar, im Moment.</p>
+        <div class="cta">
+          <a class="btn primary" href="#coming">Coming Soon</a>
+          <a class="btn ghost" href="mailto:info@zeitzeugen.app">info@zeitzeugen.app</a>
+        </div>
+      </div>
+      <aside class="teaser">
+        <h3>Ein Vorgeschmack</h3>
+        <div class="card">
+          <div class="meta">Beispiel · Mondlandung</div>
+          <div>„The Eagle has landed.“ — so, wie die Welt es damals erlebt hat: im richtigen Takt, mit echten Quellen und Stimmen.</div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- VALUE SECTIONS -->
+    <section class="section" id="value">
+      <div class="grid">
+        <div class="panel">
+          <h3>Was haben unsere Partner davon?</h3>
+          <ul>
+            <li><strong>Einzigartiges Storytelling</strong> <span>— Inhalte, die sich über Zeit entfalten.</span></li>
+            <li><strong>Relevante Reichweite</strong> <span>— Zielgruppen digital erreichen, wiederkehren lassen.</span></li>
+            <li><strong>Besucherwachstum &amp; Bindung</strong> <span>— mehr Besucher und langfristige Verbundenheit.</span></li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h3>Was haben die App‑Nutzer davon?</h3>
+          <ul>
+            <li><strong>Erleben statt nacherzählen</strong> <span>— Momente im echten Rhythmus.</span></li>
+            <li><strong>Mehr Tiefe, mehr Kontext</strong> <span>— Originalquellen, Stimmen, Perspektiven.</span></li>
+            <li><strong>Weniger FOMO</strong> <span>— Hinweise im richtigen Moment, ohne Hektik.</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMING SOON -->
+    <section id="coming" class="coming">
+      <div class="pill">🚀 Coming Soon</div>
+      <div class="contact">Fragen oder Interesse? Schreib uns an <a href="mailto:info@zeitzeugen.app">info@zeitzeugen.app</a></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container" style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap">
+      <div>© <span id="year"></span> Zeitzeugen</div>
+      <nav style="display:flex;gap:16px">
+        <a href="https://npxsoftware-gmbh.github.io/legal-docs/">Impressum</a>
+        <a href="mailto:info@zeitzeugen.app">Kontakt</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent=new Date().getFullYear()</script>
 </body>
 </html>
