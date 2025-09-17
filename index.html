@@ -55,7 +55,14 @@
     .lead{color:var(--muted);font-size:1.1rem;margin-top:14px}
 
     .demo{padding:60px 0;text-align:center;opacity:0;animation:fadeIn 2s ease forwards .4s}
-    .demo h2{font-size:1.6rem;margin-bottom:32px}
+    .demo h2{font-size:1.6rem;margin-bottom:18px}
+
+    /* Carousel */
+    .carousel{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.03);box-shadow:0 10px 24px rgba(0,0,0,.25), inset 0 0 30px rgba(253,66,178,.06)}
+    .track{display:flex;transition:transform .6s cubic-bezier(.22,.61,.36,1);will-change:transform}
+    .slide{min-width:100%;padding:28px 20px}
+    .slide h3{font-size:1.1rem;color:var(--muted);margin-bottom:18px}
+
     .timeline{max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:36px;position:relative}
     .timeline::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--c1),var(--c3));transform:translateX(-50%)}
     .event{position:relative;max-width:420px;padding:18px 20px;border-radius:14px;background:rgba(255,255,255,.05);border:1px solid var(--line);box-shadow:0 6px 18px rgba(0,0,0,.25)}
@@ -66,6 +73,14 @@
     .timeline .event:nth-child(odd){align-self:flex-start;text-align:left}
     .timeline .event:nth-child(even){align-self:flex-end;text-align:left}
 
+    .dots{display:flex;justify-content:center;gap:10px;padding:16px 0}
+    .dot{width:8px;height:8px;border-radius:999px;background:#2a2a36;border:1px solid var(--line);opacity:.9}
+    .dot[aria-current="true"]{background:linear-gradient(135deg,var(--c1),var(--c3));box-shadow:0 0 0 4px rgba(253,66,178,.12)}
+
+    .ctrl{position:absolute;top:50%;transform:translateY(-50%);inset-inline-start:12px;z-index:2;display:flex;gap:calc(100% - 56px)}
+    .btn{appearance:none;border:1px solid var(--line);background:rgba(255,255,255,.06);color:var(--ink);width:44px;height:44px;border-radius:12px;backdrop-filter:blur(8px);display:grid;place-items:center;font-weight:800;cursor:pointer}
+    .btn:focus{outline:2px solid var(--c2);outline-offset:2px}
+
     @keyframes fadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
 
     @media(max-width:768px){
@@ -73,6 +88,7 @@
       .event{align-self:flex-start;max-width:100%;margin-left:40px}
       .event .time{position:static;margin-bottom:6px}
       .grid{grid-template-columns:1fr !important}
+      .ctrl{inset-inline-start:8px;gap:calc(100% - 48px)}
     }
 
     .section{padding:54px 0;border-top:1px solid var(--line);opacity:0;animation:fadeIn 2s ease forwards .6s}
@@ -113,26 +129,94 @@
       <p class="lead">Wir denken historische Erlebnisse zeitlich. Kuratiert, fühlbar, im Moment. <strong>Ganz bald.</strong></p>
     </section>
 
-    <section class="demo">
-      <h2>Beispiel · JFK-Attentat · 1963</h2>
-      <div class="timeline">
-        <div class="event">
-          <div class="time">11:38</div>
-          <div class="meta">Dallas Airport</div>
-          <div class="text"><strong>Air Force One</strong> landet in Love Field. Jubelnde Menge – die Autokolonne setzt sich in Bewegung. Das Radio sendet live.</div>
+    <section class="demo" aria-label="Zeitzeugen Beispiele">
+      <h2>Beispiele – wische nach links oder rechts</h2>
+
+      <div class="carousel" id="examples">
+        <div class="track" role="group" aria-roledescription="carousel" aria-label="Beispiel-Slider">
+
+          <!-- Slide 1: JFK -->
+          <article class="slide" aria-label="JFK-Attentat 1963">
+            <h3>Beispiel · JFK-Attentat · 1963</h3>
+            <div class="timeline">
+              <div class="event">
+                <div class="time">11:38</div>
+                <div class="meta">Dallas · Love Field</div>
+                <div class="text"><strong>Air Force One</strong> landet. Jubelnde Menge – die Autokolonne setzt sich in Bewegung. Das Radio sendet live.</div>
+              </div>
+              <div class="event">
+                <div class="time">12:30</div>
+                <div class="meta">Dealey Plaza</div>
+                <div class="text">„<strong>Es sind Schüsse gefallen!</strong>“ – Erste Eilmeldungen, Sirenen, ein offenes Verdeck. Aus Euphorie wird Stille.</div>
+              </div>
+              <div class="event">
+                <div class="time">13:38</div>
+                <div class="meta">Parkland Hospital</div>
+                <div class="text">CBS meldet: „<strong>Präsident Kennedy ist um 13:00 Uhr CST verstorben.</strong>“ Eine Nation hält den Atem an – Flaggen auf Halbmast.</div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Slide 2: Apollo 11 -->
+          <article class="slide" aria-label="Apollo 11 · 1969">
+            <h3>Beispiel · Apollo&nbsp;11 · 1969</h3>
+            <div class="timeline">
+              <div class="event">
+                <div class="time">09:32 EDT</div>
+                <div class="meta">Cape Kennedy</div>
+                <div class="text"><strong>Start von Saturn V</strong> – die Triebwerke zünden, der Boden vibriert. Millionen verfolgen den Countdown live.</div>
+              </div>
+              <div class="event">
+                <div class="time">20:17 UTC</div>
+                <div class="meta">Mondorbit · Mare Tranquillitatis</div>
+                <div class="text"><strong>„The Eagle has landed.“</strong> – Landung des Lunar Module. Weltweit brechen Jubelwellen los.</div>
+              </div>
+              <div class="event">
+                <div class="time">02:56 UTC</div>
+                <div class="meta">Mondoberfläche</div>
+                <div class="text"><strong>Erster Schritt</strong> – „ein kleiner Schritt…“ Die Menschheit erlebt einen gemeinsamen Moment der Nähe im All.</div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Slide 3: Fall der Mauer -->
+          <article class="slide" aria-label="Fall der Berliner Mauer · 1989">
+            <h3>Beispiel · Fall der Berliner Mauer · 1989</h3>
+            <div class="timeline">
+              <div class="event">
+                <div class="time">18:53</div>
+                <div class="meta">Pressekonferenz</div>
+                <div class="text"><strong>„Sofort, unverzüglich.“</strong> – Schabowskis Worte verbreiten sich, Fragen liegen in der Luft.</div>
+              </div>
+              <div class="event">
+                <div class="time">19:00</div>
+                <div class="meta">Nachrichtensendungen</div>
+                <div class="text">Eilmeldungen rollen: <strong>Grenzöffnung</strong>. Menschen strömen zu den Übergängen, die Stadt summt vor Erwartung.</div>
+              </div>
+              <div class="event">
+                <div class="time">23:30</div>
+                <div class="meta">Bornholmer Straße</div>
+                <div class="text">Die Schranken gehen hoch – Tränen, Umarmungen, hupende Trabis. Ein Kontinent atmet auf.</div>
+              </div>
+            </div>
+          </article>
+
         </div>
-        <div class="event">
-          <div class="time">12:30</div>
-          <div class="meta">Dealey Plaza</div>
-          <div class="text">„<strong>Es sind Schüsse gefallen!</strong>“ – Erste Eilmeldungen, Sirenen, ein offenes Verdeck. Aus Euphorie wird Stille.</div>
-        </div>
-        <div class="event">
-          <div class="time">13:38</div>
-          <div class="meta">Parkland Hospital</div>
-          <div class="text">CBS meldet: „<strong>Präsident Kennedy ist um 13:00 Uhr CST verstorben.</strong>“ Eine Nation hält den Atem an – Flaggen auf Halbmast.</div>
+
+        <!-- Controls -->
+        <div class="ctrl" aria-hidden="false">
+          <button class="btn" id="prev" aria-label="Vorheriges Beispiel" title="Zurück">‹</button>
+          <button class="btn" id="next" aria-label="Nächstes Beispiel" title="Weiter">›</button>
         </div>
       </div>
-      <p class="lead" style="margin-top:20px;color:var(--muted)">In Zeitzeugen erlebst du solche Momente im <em>richtigen Takt</em> – wie damals, nur heute.</p>
+
+      <div class="dots" role="tablist" aria-label="Beispiel auswählen">
+        <button class="dot" role="tab" aria-selected="true" aria-current="true" aria-controls="examples" data-i="0"></button>
+        <button class="dot" role="tab" aria-selected="false" aria-controls="examples" data-i="1"></button>
+        <button class="dot" role="tab" aria-selected="false" aria-controls="examples" data-i="2"></button>
+      </div>
+
+      <p class="lead" style="margin-top:10px;color:var(--muted)">In Zeitzeugen erlebst du solche Momente im <em>richtigen Takt</em> – wie damals, nur heute.</p>
     </section>
 
     <section class="section">
@@ -173,7 +257,50 @@
     </div>
   </footer>
 
-  <script>document.getElementById('year').textContent=new Date().getFullYear()</script>
+  <script>
+    document.getElementById('year').textContent=new Date().getFullYear();
+
+    (function(){
+      const root = document.getElementById('examples');
+      const track = root.querySelector('.track');
+      const slides = Array.from(track.children);
+      const prev = document.getElementById('prev');
+      const next = document.getElementById('next');
+      const dots = Array.from(document.querySelectorAll('.dot'));
+      let index = 0, x0=null, locked=false, w=()=>root.clientWidth;
+
+      function update(){
+        track.style.transform = `translateX(${-index*w()}px)`;
+        dots.forEach((d,i)=>{
+          d.setAttribute('aria-current', i===index);
+          d.setAttribute('aria-selected', i===index);
+        });
+        prev.disabled = index===0; next.disabled = index===slides.length-1;
+      }
+
+      function clamp(i){ return Math.max(0, Math.min(slides.length-1, i)); }
+
+      prev.addEventListener('click', ()=>{ index=clamp(index-1); update(); });
+      next.addEventListener('click', ()=>{ index=clamp(index+1); update(); });
+      dots.forEach(d=>d.addEventListener('click', ()=>{ index=clamp(+d.dataset.i); update(); }));
+
+      // Touch + Drag
+      track.addEventListener('pointerdown', e=>{ locked=true; x0=e.clientX; track.setPointerCapture(e.pointerId); });
+      track.addEventListener('pointermove', e=>{
+        if(!locked) return; const dx=e.clientX-x0; track.style.transform=`translateX(${-(index*w()-dx)}px)`;
+      });
+      const end=(e)=>{
+        if(!locked) return; locked=false; const dx=e.clientX-x0; const th=w()*0.2; if(Math.abs(dx)>th){ index = clamp(index + (dx<0?1:-1)); } update();
+      };
+      track.addEventListener('pointerup', end); track.addEventListener('pointercancel', end); track.addEventListener('pointerleave', end);
+
+      // Keyboard
+      root.addEventListener('keydown', (e)=>{ if(e.key==='ArrowRight'){next.click()} if(e.key==='ArrowLeft'){prev.click()} });
+
+      window.addEventListener('resize', update);
+      update();
+    })();
+  </script>
 </body>
 
  <div class="bg-orb" aria-hidden="true"></div>
