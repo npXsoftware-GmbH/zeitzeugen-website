@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
   <rect width="256" height="256" rx="56" fill="#FD42B2"/>
-  <text x="50%" y="50%" font-size="140" text-anchor="middle" dy=".35em" 
-        font-family="Montserrat, sans-serif" font-weight="800" fill="#0A0A10">
+  <text x="50%" y="50%" font-size="220" text-anchor="middle" dy=".35em"
+        font-family="Montserrat, sans-serif" font-weight="800" fill="#FFFCF2">
     Z
   </text>
 </svg>
