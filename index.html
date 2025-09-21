@@ -114,7 +114,7 @@
     </section>
 
     <section class="demo" aria-label="Zeitzeugen Beispiele">
-      <h2>🚀 So funktionierts 🚀</h2>
+      <h2>So funktionierts 💡</h2>
 
       <div class="carousel" id="examples">
         <div class="track" role="group" aria-roledescription="carousel" aria-label="Beispiel-Slider">
@@ -224,7 +224,6 @@
     next.addEventListener('click', ()=> goTo(getIndex()+1));
     dots.forEach((d,i)=> d.addEventListener('click', ()=> goTo(i)));
 
-    // Beobachte aktive Folie (robust, keine manuellen Touch-Handler nötig)
     const io = new IntersectionObserver((entries)=>{
       // finde die Slide mit größter Intersektion
       let best = entries.reduce((a,b)=> (a.intersectionRatio>b.intersectionRatio? a : b));
