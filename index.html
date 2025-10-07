@@ -260,28 +260,24 @@
       </section>
 
 
-      <section class="newsletter" id="newsletter">
+      <section class="newsletter" id="newsletter" role="region" aria-labelledby="newsletter-title">
         <div class="container newsletter-card">
           <div class="copy">
-            <span class="eyebrow">Stay in the loop</span>
-            <h2>Updates zum Beta-Start</h2>
-            <p>Wir launchen 2026.</p>
-          </div>
-          <form class="signup-form" aria-label="Newsletter-Anmeldung">
-            <label class="sr-only" for="email">E-Mail-Adresse</label>
-            <!-- <input id="email" type="email" name="email" placeholder="name@mail.com" required /> -->
-            <button type="button" aria-controls="beta-updates-message" aria-expanded="false">2026</button>
-            <p
-              id="beta-updates-message"
-              class="hint signup-message"
-              role="status"
-              aria-live="polite"
-              hidden
-            >
-              Die Mail-Liste wird bald freigeschaltet. Schreib uns gerne schon jetzt an
-              <a href="mailto:info@zeitzeugen.app">info@zeitzeugen.app</a> – wir melden uns bei dir.
+            <span class="eyebrow">Für Partner</span>
+            <h2 id="newsletter-title">Deine Geschichte. Unsere Plattform.</h2>
+            <p>Die Beta startet bald – als Partner kannst du dich schon jetzt melden.</p>
+            <p>
+              Schreib uns an
+              <a href="mailto:info@zeitzeugen.app">info@zeitzeugen.app</a>
+              – wir antworten persönlich.
             </p>
-          </form>
+            <p class="copy-secondary">Nur informiert bleiben? Wir geben Bescheid, sobald die Beta-Liste öffnet.</p>
+          </div>
+          <div class="newsletter-aside" aria-labelledby="newsletter-contact">
+            <span class="aside-label" id="newsletter-contact">Partner-Kontakt</span>
+            <a class="aside-mail" href="mailto:partner@zeitzeugen.app">partner@zeitzeugen.app</a>
+            <p class="aside-note">Kurzer Ping genügt.</p>
+          </div>
         </div>
       </section>
     </main>
@@ -296,21 +292,5 @@
       </div>
     </footer>
 
-    <script>
-      (function () {
-        const button = document.querySelector('.signup-form button');
-        const message = document.querySelector('.signup-form .signup-message');
-
-        if (!button || !message) return;
-
-        button.addEventListener('click', () => {
-          if (message.hidden) {
-            message.hidden = false;
-            message.classList.add('visible');
-            button.setAttribute('aria-expanded', 'true');
-          }
-        });
-      })();
-    </script>
   </body>
 </html>

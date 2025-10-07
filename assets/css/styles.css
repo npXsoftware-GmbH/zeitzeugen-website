@@ -499,6 +499,7 @@ a:hover {
   gap: clamp(2rem, 6vw, 3rem);
   border: 1px solid rgba(253, 66, 178, 0.16);
   box-shadow: var(--shadow-card);
+  align-items: stretch;
 }
 
 .copy h2 {
@@ -510,64 +511,65 @@ a:hover {
   max-width: 45ch;
 }
 
-.signup-form {
-  display: grid;
-  gap: 1rem;
-}
-
-.signup-form input {
-  border: 1px solid rgba(15, 16, 32, 0.1);
-  border-radius: 999px;
-  padding: 0.95rem 1.4rem;
-  font-size: 1rem;
-  font-family: "Inter", sans-serif;
-  color: var(--ink);
-  background: rgba(255, 255, 255, 0.9);
-}
-
-.signup-form button {
-  border: none;
-  cursor: pointer;
-  border-radius: 999px;
-  padding: 0.95rem 1.4rem;
-  font-weight: 600;
-  font-size: 1rem;
-  font-family: "Montserrat", sans-serif;
-  background: linear-gradient(135deg, var(--primary), var(--primary-strong));
-  color: var(--white);
-  box-shadow: 0 16px 30px rgba(253, 66, 178, 0.25);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.signup-form button:hover,
-.signup-form button:focus {
-  transform: translateY(-1px);
-  box-shadow: 0 22px 42px rgba(253, 66, 178, 0.3);
-}
-
-.signup-form .hint {
-  font-size: 0.85rem;
+.copy-secondary {
   color: var(--muted);
 }
 
-.signup-form .signup-message {
-  margin: 0;
-  line-height: 1.5;
-  transition: opacity 0.2s ease;
+/* newsletter: aside */
+.newsletter-aside {
+  position: relative;
+  padding: clamp(1.5rem, 3.5vw, 2.25rem);
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(253, 66, 178, 0.18);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  overflow: hidden;
 }
 
-.signup-form .signup-message[hidden] {
-  display: none;
-  opacity: 0;
+.newsletter-aside::after {
+  content: "";
+  position: absolute;
+  inset: 20% -30% -30% 60%;
+  background: linear-gradient(135deg, rgba(253, 66, 178, 0.2), rgba(172, 47, 127, 0));
+  opacity: 0.25;
+  transform: rotate(-8deg);
 }
 
-.signup-form .signup-message.visible {
-  opacity: 1;
+.aside-label {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--primary-strong);
+  position: relative;
+  z-index: 1;
 }
 
-.signup-form .signup-message a {
-  color: inherit;
+.aside-mail {
+  font-size: clamp(1.2rem, 2.8vw, 1.6rem);
+  font-weight: 600;
+  color: var(--ink);
+  text-decoration: none;
+  position: relative;
+  z-index: 1;
+}
+
+.aside-mail:focus,
+.aside-mail:hover {
   text-decoration: underline;
+  color: var(--primary-strong);
+}
+
+.aside-note {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+  position: relative;
+  z-index: 1;
 }
 
 .site-footer {
@@ -663,6 +665,10 @@ a:hover {
 
   .newsletter-card {
     grid-template-columns: 1fr;
+  }
+
+  .newsletter-aside {
+    margin-top: 1.5rem;
   }
 }
 
