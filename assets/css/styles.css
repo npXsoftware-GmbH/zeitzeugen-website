@@ -550,6 +550,26 @@ a:hover {
   color: var(--muted);
 }
 
+.signup-form .signup-message {
+  margin: 0;
+  line-height: 1.5;
+  transition: opacity 0.2s ease;
+}
+
+.signup-form .signup-message[hidden] {
+  display: none;
+  opacity: 0;
+}
+
+.signup-form .signup-message.visible {
+  opacity: 1;
+}
+
+.signup-form .signup-message a {
+  color: inherit;
+  text-decoration: underline;
+}
+
 .site-footer {
   border-top: 1px solid var(--line);
   padding: 2.5rem 0 3rem;
