@@ -270,8 +270,17 @@
           <form class="signup-form" aria-label="Newsletter-Anmeldung">
             <label class="sr-only" for="email">E-Mail-Adresse</label>
             <!-- <input id="email" type="email" name="email" placeholder="name@mail.com" required /> -->
-            <button type="submit">2026</button>
-            <a class="hint">Der E-Mail-Verteiler wird bald freigeschaltet!</a>
+            <button type="button" aria-controls="beta-updates-message" aria-expanded="false">2026</button>
+            <p
+              id="beta-updates-message"
+              class="hint signup-message"
+              role="status"
+              aria-live="polite"
+              hidden
+            >
+              Die Mail-Liste wird bald freigeschaltet. Schreib uns gerne schon jetzt an
+              <a href="mailto:info@zeitzeugen.app">info@zeitzeugen.app</a> – wir melden uns bei dir.
+            </p>
           </form>
         </div>
       </section>
@@ -286,5 +295,22 @@
         </div>
       </div>
     </footer>
+
+    <script>
+      (function () {
+        const button = document.querySelector('.signup-form button');
+        const message = document.querySelector('.signup-form .signup-message');
+
+        if (!button || !message) return;
+
+        button.addEventListener('click', () => {
+          if (message.hidden) {
+            message.hidden = false;
+            message.classList.add('visible');
+            button.setAttribute('aria-expanded', 'true');
+          }
+        });
+      })();
+    </script>
   </body>
 </html>
