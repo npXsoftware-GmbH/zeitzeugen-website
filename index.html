@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@400;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="assets/css/styles.css" />
@@ -24,181 +24,267 @@
     <meta name="theme-color" content="#FD42B2" />
   </head>
   <body>
-    <div class="bg-orb" aria-hidden="true"></div>
-    <div class="ribbon" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="surface" aria-hidden="true"></div>
 
-    <header>
-      <div class="container nav">
-        <div class="brand">
-          <div class="badge">Z</div>
-          <span>Zeitzeugen</span>
-        </div>
-        <span class="chip">Start-Up · Kultur</span>
+    <header class="site-header">
+      <div class="container header-grid">
+        <a class="brand" href="#top" aria-label="Zeitzeugen Start">
+          <span class="brand-badge">Z</span>
+          <span class="brand-word">Zeitzeugen</span>
+        </a>
+        <nav aria-label="Primäre Navigation" class="nav">
+          <a href="#prinzip">Prinzip</a>
+          <a href="#momente">Momente</a>
+          <a href="#newsletter">Updates</a>
+        </nav>
+        <a class="cta" href="#newsletter">Updates abonnieren</a> 
       </div>
     </header>
 
     <main>
-      <section class="hero">
-        <div class="container">
-          <h1>Geschichte erleben – wie damals, nur heute.</h1>
-          <p class="lead">
-            Wir denken historische Erlebnisse zeitlich. Kuratiert, fühlbar, im Moment.
-            <strong>Ganz bald.</strong>
-          </p>
-        </div>
-      </section>
-
-      <section class="demo">
-        <div class="container">
-          <h2>So funktionierts 💡</h2>
-
-          <div class="carousel" id="examples" role="region" aria-label="Zeitzeugen Beispiele" tabindex="0">
-            <div class="track">
-              <!-- Slide 1: JFK -->
-              <article class="slide" aria-label="JFK-Attentat 1963">
-                <h3>Beispiel · JFK-Attentat · 1963</h3>
-                <div class="timeline">
-                  <div class="event">
-                    <div class="time">11:38</div>
-                    <div class="meta">Dallas · Love Field</div>
-                    <div class="text">
-                      <strong>Air Force One</strong> landet. Jubelnde Menge – die Autokolonne setzt sich in Bewegung. Das Radio sendet live.
-                    </div>
-                  </div>
-                  <div class="event">
-                    <div class="time">12:30</div>
-                    <div class="meta">Dealey Plaza</div>
-                    <div class="text">
-                      „<strong>Es sind Schüsse gefallen!</strong>“ – Erste Eilmeldungen, Sirenen, ein offenes Verdeck. Aus Euphorie wird Stille.
-                    </div>
-                  </div>
-                  <div class="event">
-                    <div class="time">13:38</div>
-                    <div class="meta">Parkland Hospital</div>
-                    <div class="text">
-                      CBS meldet: „<strong>Präsident Kennedy ist um 13:00 Uhr CST verstorben.</strong>“ Eine Nation hält den Atem an – Flaggen auf Halbmast.
-                    </div>
-                  </div>
-                </div>
-              </article>
-
-              <!-- Slide 2: Apollo 11 -->
-              <article class="slide" aria-label="Apollo 11 · 1969">
-                <h3>Beispiel · Apollo&nbsp;11 · 1969</h3>
-                <div class="timeline">
-                  <div class="event">
-                    <div class="time">09:32 EDT</div>
-                    <div class="meta">Cape Kennedy</div>
-                    <div class="text">
-                      <strong>Start von Saturn V</strong> – die Triebwerke zünden, der Boden vibriert. Millionen verfolgen den Countdown live.
-                    </div>
-                  </div>
-                  <div class="event">
-                    <div class="time">20:17 UTC</div>
-                    <div class="meta">Mondorbit · Mare Tranquillitatis</div>
-                    <div class="text">
-                      <strong>„The Eagle has landed.“</strong> – Landung des Lunar Module. Weltweit brechen Jubelwellen los.
-                    </div>
-                  </div>
-                  <div class="event">
-                    <div class="time">02:56 UTC</div>
-                    <div class="meta">Mondoberfläche</div>
-                    <div class="text">
-                      <strong>Erster Schritt</strong> – „ein kleiner Schritt…“ Die Menschheit erlebt einen gemeinsamen Moment der Nähe im All.
-                    </div>
-                  </div>
-                </div>
-              </article>
-
-              <!-- Slide 3: Fall der Mauer -->
-              <article class="slide" aria-label="Fall der Berliner Mauer · 1989">
-                <h3>Beispiel · Fall der Berliner Mauer · 1989</h3>
-                <div class="timeline">
-                  <div class="event">
-                    <div class="time">18:53</div>
-                    <div class="meta">Pressekonferenz</div>
-                    <div class="text">
-                      <strong>„Sofort, unverzüglich.“</strong> – Schabowskis Worte verbreiten sich, Fragen liegen in der Luft.
-                    </div>
-                  </div>
-                  <div class="event">
-                    <div class="time">19:00</div>
-                    <div class="meta">Nachrichtensendungen</div>
-                    <div class="text">
-                      Eilmeldungen rollen: <strong>Grenzöffnung</strong>. Menschen strömen zu den Übergängen, die Stadt summt vor
-                      Erwartung.
-                    </div>
-                  </div>
-                  <div class="event">
-                    <div class="time">23:30</div>
-                    <div class="meta">Bornholmer Straße</div>
-                    <div class="text">
-                      Die Schranken gehen hoch – Tränen, Umarmungen, hupende Trabis. Ein Kontinent atmet auf.
-                    </div>
-                  </div>
-                </div>
-              </article>
+      <section class="hero" id="top">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <span class="eyebrow">Coming Soon</span>
+            <h1>Geschichte - wie damals, nur heute.</h1>
+            <p>
+              Zeitzeugen kuratiert historische Ereignisse in Echtzeit – mit Stimmen, Stimmungen und Kontext, der im Takt der
+              Geschichte entfaltet wird.
+            </p>
+            <div class="hero-actions">
+              <a class="btn primary" href="#newsletter">Werde Partner</a>
             </div>
+            <dl class="hero-meta" aria-label="Highlights">
+              <div>
+                <dt>+200</dt>
+                <dd>kuratierte Stunden Audio &amp; Quellen</dd>
+              </div>
+              <div>
+                <dt>+30</dt>
+                <dd>Partner aus Kultur &amp; Forschung</dd>
+              </div>
+              <div>
+                <dt>1 Ziel</dt>
+                <dd>Geschichte erleben – wie damals, nur heute</dd>
+              </div>
+            </dl>
           </div>
-
-          <div class="controls">
-            <button class="btn" id="prev" aria-label="Vorheriges Beispiel" title="Zurück">‹</button>
-            <button class="btn" id="next" aria-label="Nächstes Beispiel" title="Weiter">›</button>
-          </div>
-
-          <div class="dots" role="tablist" aria-label="Beispiel auswählen">
-            <button class="dot" role="tab" aria-selected="true" aria-current="true" data-i="0"></button>
-            <button class="dot" role="tab" aria-selected="false" data-i="1"></button>
-            <button class="dot" role="tab" aria-selected="false" data-i="2"></button>
-          </div>
-
-          <p class="lead lead-muted">
-            In Zeitzeugen erlebst du solche Momente im <em>richtigen Takt</em> – wie damals, nur heute.
-          </p>
-        </div>
-      </section>
-
-      <section class="section">
-        <div class="container">
-          <div class="grid">
-            <div class="panel">
-              <h3>Was haben unsere Partner davon?</h3>
-              <ul>
-                <li><strong>Besucherwachstum &amp; Bindung</strong> — mehr Besucher und langfristige Verbundenheit.</li>
-                <li><strong>Relevante Reichweite</strong> — Zielgruppen digital erreichen, wiederkehren lassen.</li>
-                <li><strong>Einzigartiges Storytelling</strong> — Inhalte, die sich über Zeit entfalten.</li>
+          <div class="hero-card" role="presentation" aria-hidden="true">
+            <div class="card-header">
+              <span>Live-Segment</span>
+              <span class="chip">Originalton</span>
+            </div>
+            <div class="card-body">
+              <p class="card-lead">„Wir sind live in Dallas.“</p>
+              <p class="card-sub">Die Chronik beginnt 20 Minuten vor dem Attentat auf JFK und begleitet den Tag minütlich.</p>
+              <ul class="card-list">
+                <li>
+                  <span class="time">11:38</span>
+                  <span class="desc">Love Field · Air Force One landet</span>
+                </li>
+                <li>
+                  <span class="time">12:30</span>
+                  <span class="desc">Eilmeldung · „Es sind Schüsse gefallen!“</span>
+                </li>
+                <li>
+                  <span class="time">13:38</span>
+                  <span class="desc">CBS bestätigt den Tod Kennedys</span>
+                </li>
               </ul>
             </div>
-            <div class="panel">
-              <h3>Was haben die App-Nutzer davon?</h3>
-              <ul>
-                <li><strong>Erleben statt nacherzählen</strong> — Momente im echten Rhythmus.</li>
-                <li><strong>Mehr Tiefe, mehr Kontext</strong> — Originalquellen, Stimmen, Perspektiven.</li>
-                <li><strong>Weniger FOMO</strong> — Hinweise im richtigen Moment, ohne Hektik.</li>
-              </ul>
+            <div class="card-footer">
+              <span class="progress" aria-hidden="true"></span>
+              <span class="label">Spannung baut sich auf</span>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="coming">
+      <section class="principles" id="prinzip">
+        <div class="container section-head">
+          <div>
+            <span class="eyebrow">Unser Prinzip</span>
+            <h2>Kuratiert, emotional, zeitlich.</h2>
+          </div>
+          <p>
+            Zeitzeugen übersetzt historische Augenblicke in eine klare, geführte Erlebnisreise. Jede Minute ist recherchiert,
+            Quellen verifiziert, jede Szene kuratiert – für einen Zugang, der Nähe schafft statt Distanz.
+          </p>
+        </div>
+        <div class="container cards-grid">
+          <article class="info-card">
+            <h3>Im Rhythmus der Ereignisse</h3>
+            <p>
+              Erlebe Geschichte genau im Tempo, in dem sie passierte. Unsere Timeline lenkt dich wie ein feiner Taktgeber durch
+              Minuten, Stimmen und Wendepunkte.
+            </p>
+          </article>
+          <article class="info-card">
+            <h3>Quellen, die Vertrauen schaffen</h3>
+            <p>
+              Archivmaterial, Interviews, Radiosendungen. Alles strukturiert, sauber verlinkt und für die Weiterarbeit
+              dokumentiert.
+            </p>
+          </article>
+          <article class="info-card">
+            <h3>Emotion trifft Kontext</h3>
+            <p>
+              Jede Szene kombiniert Primärquellen mit Kommentaren und visuellen Hinweisen – für einen emotionalen Zugang ohne
+              Pathos.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="moments" id="momente" aria-labelledby="momente-heading">
         <div class="container">
-          <div class="pill">🚀 Coming Soon</div>
-          <div class="contact">Fragen oder Interesse? Schreib uns an <a href="mailto:info@zeitzeugen.app">info@zeitzeugen.app</a></div>
+          <div class="section-head compact">
+            <div>
+              <span class="eyebrow">Preview</span>
+              <h2 id="momente-heading">Drei Beispiele, die du fühlen kannst.</h2>
+            </div>
+            <p>Erlebe Geschichte – oder erzähle deine eigene. Werde Partner und bringe deine Geschichten auf unsere Plattform.</p>
+          </div>
+          <div class="moment-scroll" role="list">
+            <article class="moment" role="listitem">
+              <header>
+                <span class="tag">1963</span>
+                <h3>JFK in Dallas</h3>
+              </header>
+              <ul>
+                <li>
+                  <span class="time">11:38</span>
+                  <span class="detail">Ankunft von Air Force One – Jubel, Kameras, Radioton.</span>
+                </li>
+                <li>
+                  <span class="time">12:30</span>
+                  <span class="detail">„Es sind Schüsse gefallen!“ – erste Sirenen, Reporter:innen live.</span>
+                </li>
+                <li>
+                  <span class="time">13:38</span>
+                  <span class="detail">CBS bestätigt Kennedys Tod. Die Stadt verstummt.</span>
+                </li>
+              </ul>
+            </article>
+            <article class="moment" role="listitem">
+              <header>
+                <span class="tag">1969</span>
+                <h3>Apollo 11</h3>
+              </header>
+              <ul>
+                <li>
+                  <span class="time">09:32</span>
+                  <span class="detail">Saturn V hebt ab. Countdown, Gänsehaut, Millionen Ohren.</span>
+                </li>
+                <li>
+                  <span class="time">20:17</span>
+                  <span class="detail">„The Eagle has landed.“ – Landung im Mare Tranquillitatis.</span>
+                </li>
+                <li>
+                  <span class="time">02:56</span>
+                  <span class="detail">Erster Schritt auf dem Mond. Ein globaler Atemzug.</span>
+                </li>
+              </ul>
+            </article>
+            <article class="moment" role="listitem">
+              <header>
+                <span class="tag">1989</span>
+                <h3>Fall der Mauer</h3>
+              </header>
+              <ul>
+                <li>
+                  <span class="time">18:53</span>
+                  <span class="detail">Schabowski verkündet: „Sofort, unverzüglich.“ Verwirrung.</span>
+                </li>
+                <li>
+                  <span class="time">19:00</span>
+                  <span class="detail">Eilmeldungen, Menschen strömen zu den Grenzübergängen.</span>
+                </li>
+                <li>
+                  <span class="time">23:30</span>
+                  <span class="detail">Bornholmer Straße öffnet. Tränen, Umarmungen, Trabi-Hupen.</span>
+                </li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="timeline-preview" aria-labelledby="timeline-heading">
+        <div class="container">
+          <div class="section-head compact">
+            <div>
+              <span class="eyebrow">Partner Journey</span>
+              <h2 id="timeline-heading">Von Inhalt zur Experience – klar getaktet</h2>
+            </div>
+            <p>
+              Wir kuratieren, orchestrieren und messen – du bleibst Eigentümer:in deiner Inhalte. Gemeinsam schaffen wir Reichweite mit Substanz.  
+              Unser Team begleitet dich Schritt für Schritt – von der Idee bis zum Launch auf der Zeitzeugen-Plattform.
+            </p>
+          </div>
+
+          <div class="timeline-board" role="presentation" aria-hidden="true">
+            <div class="lane">
+              <span class="marker"></span>
+              <div class="entry">
+                <span class="time">1. Kick-off & Zielbild</span>
+                <p>Inhalte, Zielgruppen und Wirkung klären. Scope, Rollen, Timing stehen – schnell und schlank.</p>
+              </div>
+              <div class="entry">
+                <span class="time">2. Storyboard & Taktung</span>
+                <p>Wir übersetzen deine Geschichte in den Zeitzeugen-Flow: Momente, Trigger, Originaltöne.</p>
+              </div>
+              <div class="entry">
+                <span class="time">3. Build & Playtest</span>
+                <p>Unsere Experience-Engine orchestriert Audio, Text, Visuals. Iterationen mit eurem Team.</p>
+              </div>
+            </div>
+
+            <div class="lane">
+              <span class="marker"></span>
+              <div class="entry">
+                <span class="time">4. Premiere</span>
+                <p>Live auf Zeitzeugen: kuratiert, teilbar, im echten Zeitzeugen-Takt – Bühne frei für eure Geschichte!</p>
+              </div>
+              <div class="entry">
+                <span class="time">5. Insights & Statistiken</span>
+                <p>Feedback, Likes/Dislikes und Nutzungsdaten zeigen, was berührt. Wir schärfen Inhalte und Distribution.</p>
+              </div>
+              <div class="entry">
+                <span class="time">6. Nächste Geschichte</span>
+                <p>Auf Basis der Insights planen wir das nächste Kapitel – schneller, fokussierter, wirkungsvoller.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <section class="newsletter" id="newsletter">
+        <div class="container newsletter-card">
+          <div class="copy">
+            <span class="eyebrow">Stay in the loop</span>
+            <h2>Updates zum Beta-Start</h2>
+            <p>Wir launchen 2026.</p>
+          </div>
+          <form class="signup-form" aria-label="Newsletter-Anmeldung">
+            <label class="sr-only" for="email">E-Mail-Adresse</label>
+            <!-- <input id="email" type="email" name="email" placeholder="name@mail.com" required /> -->
+            <button type="submit">2026</button>
+            <a class="hint">Der E-Mail-Verteiler wird bald freigeschaltet!</a>
+          </form>
         </div>
       </section>
     </main>
 
-    <footer>
-      <div class="footer-content container">
-        <div>© <span id="year"></span> Zeitzeugen</div>
-        <nav class="footer-nav">
-          <a href="https://npxsoftware.eu">Impressum</a>
-          <a href="mailto:info@zeitzeugen.app">Kontakt</a>
-        </nav>
+    <footer class="site-footer">
+      <div class="container footer-flex">
+        <small>© Zeitzeugen App</small>
+        <div class="footer-links">
+          <a href="mailto:info@zeitzeugen.app">info@zeitzeugen.app</a>
+          <a href="#top">Nach oben</a>
+        </div>
       </div>
     </footer>
-
-    <script src="assets/js/main.js" defer></script>
   </body>
 </html>
