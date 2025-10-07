@@ -1,252 +1,204 @@
 <!DOCTYPE html>
 <html lang="de">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Zeitzeugen – wie damals, nur heute</title>
-  <meta name="description" content="Zeitzeugen kündigt sich an: eine neue Art, Geschichte zu erleben – emotional, kuratiert, zeitlich spürbar. Coming Soon." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Zeitzeugen – wie damals, nur heute</title>
+    <meta
+      name="description"
+      content="Zeitzeugen kündigt sich an: eine neue Art, Geschichte zu erleben – emotional, kuratiert, zeitlich spürbar. Coming Soon."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/styles.css" />
 
-  <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
-  <link rel="icon" type="image/svg+xml" href="icons/favicon.svg">
-  <link rel="shortcut icon" href="icons/favicon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png" />
+    <link rel="icon" type="image/svg+xml" href="icons/favicon.svg" />
+    <link rel="shortcut icon" href="icons/favicon.png" />
 
-  <meta name="theme-color" content="#FD42B2">
+    <meta name="theme-color" content="#FD42B2" />
+  </head>
+  <body>
+    <div class="bg-orb" aria-hidden="true"></div>
+    <div class="ribbon" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
 
-  <style>
-    :root{ --c1:#FD42B2; --c2:#FF6CC7; --c3:#FF98D6; --c4:#FFC0E5; --c5:#FFD9EF; --c6:#FFEAF6; --bg:#0A0A10; --ink:#F6F7FB; --muted:#B9C0CF; --line:#1B1B24; }
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;}
-    a{color:inherit;text-decoration:none}
-    .container{max-width:1120px;margin:0 auto;padding:0 20px}
-
-    body::before{content:"";position:fixed;inset:-200px;z-index:-1;pointer-events:none;background:radial-gradient(600px 400px at 20% 20%, rgba(253,66,178,.15), transparent 70%),radial-gradient(800px 600px at 80% 30%, rgba(255,108,199,.12), transparent 70%),radial-gradient(700px 500px at 50% 90%, rgba(255,152,214,.1), transparent 70%);}    
-    .bg-orb{position:fixed;inset:auto -10% -20% -10%;height:70vh;pointer-events:none;filter:blur(70px);opacity:.25;z-index:-1;background:radial-gradient(60% 50% at 20% 30%, var(--c2), transparent 60%),radial-gradient(50% 45% at 70% 20%, var(--c1), transparent 60%),radial-gradient(60% 60% at 80% 80%, var(--c3), transparent 60%);}    
-
-    .ribbon{display:grid;grid-template-columns:repeat(6,1fr);height:6px}
-    .ribbon i{display:block}
-    .ribbon i:nth-child(1){background:var(--c1)} .ribbon i:nth-child(2){background:var(--c2)} .ribbon i:nth-child(3){background:var(--c3)}
-    .ribbon i:nth-child(4){background:var(--c4)} .ribbon i:nth-child(5){background:var(--c5)} .ribbon i:nth-child(6){background:var(--c6)}
-
-    header{position:sticky;top:0;background:rgba(10,10,16,.7);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);z-index:20}
-    .nav{height:64px;display:flex;align-items:center;justify-content:space-between}
-    .brand{display:flex;align-items:center;gap:.6rem;font-weight:800}
-    .badge{width:26px;height:26px;border-radius:8px;background:linear-gradient(135deg,var(--c1),var(--c2));display:grid;place-items:center;font-weight:700;color:#160413}
-    .chip{border:1px solid var(--line);padding:.3rem .6rem;border-radius:999px;color:var(--muted);font-size:.78rem}
-
-    .hero{text-align:center;padding:90px 0 40px;opacity:0;animation:fadeIn 2s ease forwards .2s}
-    h1{font-weight:800;font-size:clamp(2rem,5vw,3.4rem);background:linear-gradient(135deg,var(--c1),var(--c2));-webkit-background-clip:text;color:transparent}
-    .lead{color:var(--muted);font-size:1.1rem;margin-top:14px}
-
-    .demo{padding:60px 0;text-align:center;opacity:0;animation:fadeIn 2s ease forwards .4s}
-    .demo h2{font-size:1.6rem;margin-bottom:18px}
-
-    /* ===== Scroll‑Snap Carousel (robust auf iOS/Android/Desktop) ===== */
-    .carousel{position:relative;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.03);box-shadow:0 10px 24px rgba(0,0,0,.25), inset 0 0 30px rgba(253,66,178,.06)}
-    .track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;gap:0;overscroll-behavior-x:contain;touch-action:pan-y}
-    .track::-webkit-scrollbar{display:none}
-    .slide{flex:0 0 100%;scroll-snap-align:center;padding:28px 20px;user-select:none}
-    .slide h3{font-size:1.1rem;color:var(--muted);margin-bottom:18px}
-
-    .timeline{max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:36px;position:relative}
-    .timeline::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--c1),var(--c3));transform:translateX(-50%)}
-    .event{position:relative;max-width:420px;padding:18px 20px;border-radius:14px;background:rgba(255,255,255,.05);border:1px solid var(--line);box-shadow:0 6px 18px rgba(0,0,0,.25)}
-    .event .time{position:absolute;top:-26px;font-weight:700;color:var(--c1);font-size:.9rem}
-    .event .meta{font-size:.78rem;color:var(--muted);margin-bottom:6px}
-    .event .text{font-size:.95rem;line-height:1.5}
-
-    .timeline .event:nth-child(odd){align-self:flex-start;text-align:left}
-    .timeline .event:nth-child(even){align-self:flex-end;text-align:left}
-
-    .controls{display:flex;justify-content:center;gap:12px;margin-top:10px}
-    .btn{appearance:none;border:1px solid var(--line);background:rgba(255,255,255,.06);color:var(--ink);width:44px;height:44px;border-radius:12px;backdrop-filter:blur(8px);display:grid;place-items:center;font-weight:800;cursor:pointer}
-    .btn:focus{outline:2px solid var(--c2);outline-offset:2px}
-
-    .dots{display:flex;justify-content:center;gap:10px;padding:12px 0 16px}
-    .dot{width:8px;height:8px;border-radius:999px;background:#2a2a36;border:1px solid var(--line);opacity:.9}
-    .dot[aria-current="true"]{background:linear-gradient(135deg,var(--c1),var(--c3));box-shadow:0 0 0 4px rgba(253,66,178,.12)}
-
-    @keyframes fadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
-
-    @media(max-width:768px){
-      .timeline::before{left:12px;transform:none}
-      .event{align-self:flex-start;max-width:100%;margin-left:40px}
-      .event .time{position:static;margin-bottom:6px}
-      .grid{grid-template-columns:1fr !important}
-    }
-
-    .section{padding:54px 0;border-top:1px solid var(--line);opacity:0;animation:fadeIn 2s ease forwards .6s}
-    .section h2{font-size:1.6rem;margin:0 0 10px;color:var(--c1)}
-    .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-    .panel{border-radius:14px;padding:18px;background:linear-gradient(135deg,rgba(253,66,178,.18),rgba(255,152,214,.08));border:1px solid var(--line);box-shadow:inset 0 0 25px rgba(253,66,178,.08), 0 6px 18px rgba(0,0,0,.25)}
-    .panel h3{margin:.2rem 0 .5rem;font-size:1.05rem;color:var(--c1)}
-    .panel ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
-
-    .coming{text-align:center;padding:64px 0;opacity:0;animation:fadeIn 2s ease forwards .8s}
-    .pill{display:inline-flex;align-items:center;gap:.5rem;background:rgba(253,66,178,.12);border:1px solid rgba(253,66,178,.35);color:var(--c1);padding:.45rem .75rem;border-radius:999px;font-weight:700}
-    .contact{margin-top:12px;font-weight:700}
-
-    footer{border-top:1px solid var(--line);padding:26px 0;color:var(--muted);font-size:.92rem;opacity:0;animation:fadeIn 2s ease forwards 1s}
-  </style>
-</head>
-<body>
-
-   <div class="bg-orb" aria-hidden="true"></div>
-  <div class="ribbon" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
-
-  <header>
-    <div class="container nav">
-      <div class="brand">
-        <div class="badge">Z</div>
-        <div class="wordmark">Zeitzeugen</div>
-      </div>
-      <div class="chip">Start-Up · Kultur</div>
-    </div>
-  </header>
-
-  <main class="container">
-    <section class="hero">
-      <h1>Geschichte erleben – wie damals, nur heute.</h1>
-      <p class="lead">Wir denken historische Erlebnisse zeitlich. Kuratiert, fühlbar, im Moment. <strong>Ganz bald.</strong></p>
-    </section>
-
-    <section class="demo" aria-label="Zeitzeugen Beispiele">
-      <h2>So funktionierts 💡</h2>
-
-      <div class="carousel" id="examples">
-        <div class="track" role="group" aria-roledescription="carousel" aria-label="Beispiel-Slider">
-
-          <!-- Slide 1: JFK -->
-          <article class="slide" aria-label="JFK-Attentat 1963">
-            <h3>Beispiel · JFK-Attentat · 1963</h3>
-            <div class="timeline">
-              <div class="event"><div class="time">11:38</div><div class="meta">Dallas · Love Field</div><div class="text"><strong>Air Force One</strong> landet. Jubelnde Menge – die Autokolonne setzt sich in Bewegung. Das Radio sendet live.</div></div>
-              <div class="event"><div class="time">12:30</div><div class="meta">Dealey Plaza</div><div class="text">„<strong>Es sind Schüsse gefallen!</strong>“ – Erste Eilmeldungen, Sirenen, ein offenes Verdeck. Aus Euphorie wird Stille.</div></div>
-              <div class="event"><div class="time">13:38</div><div class="meta">Parkland Hospital</div><div class="text">CBS meldet: „<strong>Präsident Kennedy ist um 13:00 Uhr CST verstorben.</strong>“ Eine Nation hält den Atem an – Flaggen auf Halbmast.</div></div>
-            </div>
-          </article>
-
-          <!-- Slide 2: Apollo 11 -->
-          <article class="slide" aria-label="Apollo 11 · 1969">
-            <h3>Beispiel · Apollo&nbsp;11 · 1969</h3>
-            <div class="timeline">
-              <div class="event"><div class="time">09:32 EDT</div><div class="meta">Cape Kennedy</div><div class="text"><strong>Start von Saturn V</strong> – die Triebwerke zünden, der Boden vibriert. Millionen verfolgen den Countdown live.</div></div>
-              <div class="event"><div class="time">20:17 UTC</div><div class="meta">Mondorbit · Mare Tranquillitatis</div><div class="text"><strong>„The Eagle has landed.“</strong> – Landung des Lunar Module. Weltweit brechen Jubelwellen los.</div></div>
-              <div class="event"><div class="time">02:56 UTC</div><div class="meta">Mondoberfläche</div><div class="text"><strong>Erster Schritt</strong> – „ein kleiner Schritt…“ Die Menschheit erlebt einen gemeinsamen Moment der Nähe im All.</div></div>
-            </div>
-          </article>
-
-          <!-- Slide 3: Fall der Mauer -->
-          <article class="slide" aria-label="Fall der Berliner Mauer · 1989">
-            <h3>Beispiel · Fall der Berliner Mauer · 1989</h3>
-            <div class="timeline">
-              <div class="event"><div class="time">18:53</div><div class="meta">Pressekonferenz</div><div class="text"><strong>„Sofort, unverzüglich.“</strong> – Schabowskis Worte verbreiten sich, Fragen liegen in der Luft.</div></div>
-              <div class="event"><div class="time">19:00</div><div class="meta">Nachrichtensendungen</div><div class="text">Eilmeldungen rollen: <strong>Grenzöffnung</strong>. Menschen strömen zu den Übergängen, die Stadt summt vor Erwartung.</div></div>
-              <div class="event"><div class="time">23:30</div><div class="meta">Bornholmer Straße</div><div class="text">Die Schranken gehen hoch – Tränen, Umarmungen, hupende Trabis. Ein Kontinent atmet auf.</div></div>
-            </div>
-          </article>
-
+    <header>
+      <div class="container nav">
+        <div class="brand">
+          <div class="badge">Z</div>
+          <span>Zeitzeugen</span>
         </div>
+        <span class="chip">Start-Up · Kultur</span>
       </div>
+    </header>
 
-      <!-- Controls centered above dots -->
-      <div class="controls">
-        <button class="btn" id="prev" aria-label="Vorheriges Beispiel" title="Zurück">‹</button>
-        <button class="btn" id="next" aria-label="Nächstes Beispiel" title="Weiter">›</button>
-      </div>
-
-      <div class="dots" role="tablist" aria-label="Beispiel auswählen">
-        <button class="dot" role="tab" aria-selected="true" aria-current="true" data-i="0"></button>
-        <button class="dot" role="tab" aria-selected="false" data-i="1"></button>
-        <button class="dot" role="tab" aria-selected="false" data-i="2"></button>
-      </div>
-
-      <p class="lead" style="margin-top:6px;color:var(--muted)">In Zeitzeugen erlebst du solche Momente im <em>richtigen Takt</em> – wie damals, nur heute.</p>
-    </section>
-
-    <section class="section">
-      <div class="grid">
-        <div class="panel">
-          <h3>Was haben unsere Partner davon?</h3>
-          <ul>
-            <li><strong>Besucherwachstum &amp; Bindung</strong> — mehr Besucher und langfristige Verbundenheit.</li>
-            <li><strong>Relevante Reichweite</strong> — Zielgruppen digital erreichen, wiederkehren lassen.</li>
-            <li><strong>Einzigartiges Storytelling</strong> — Inhalte, die sich über Zeit entfalten.</li>
-          </ul>
+    <main>
+      <section class="hero">
+        <div class="container">
+          <h1>Geschichte erleben – wie damals, nur heute.</h1>
+          <p class="lead">
+            Wir denken historische Erlebnisse zeitlich. Kuratiert, fühlbar, im Moment.
+            <strong>Ganz bald.</strong>
+          </p>
         </div>
-        <div class="panel">
-          <h3>Was haben die App-Nutzer davon?</h3>
-          <ul>
-            <li><strong>Erleben statt nacherzählen</strong> — Momente im echten Rhythmus.</li>
-            <li><strong>Mehr Tiefe, mehr Kontext</strong> — Originalquellen, Stimmen, Perspektiven.</li>
-            <li><strong>Weniger FOMO</strong> — Hinweise im richtigen Moment, ohne Hektik.</li>
-          </ul>
+      </section>
+
+      <section class="demo">
+        <div class="container">
+          <h2>So funktionierts 💡</h2>
+
+          <div class="carousel" id="examples" role="region" aria-label="Zeitzeugen Beispiele" tabindex="0">
+            <div class="track">
+              <!-- Slide 1: JFK -->
+              <article class="slide" aria-label="JFK-Attentat 1963">
+                <h3>Beispiel · JFK-Attentat · 1963</h3>
+                <div class="timeline">
+                  <div class="event">
+                    <div class="time">11:38</div>
+                    <div class="meta">Dallas · Love Field</div>
+                    <div class="text">
+                      <strong>Air Force One</strong> landet. Jubelnde Menge – die Autokolonne setzt sich in Bewegung. Das Radio sendet live.
+                    </div>
+                  </div>
+                  <div class="event">
+                    <div class="time">12:30</div>
+                    <div class="meta">Dealey Plaza</div>
+                    <div class="text">
+                      „<strong>Es sind Schüsse gefallen!</strong>“ – Erste Eilmeldungen, Sirenen, ein offenes Verdeck. Aus Euphorie wird Stille.
+                    </div>
+                  </div>
+                  <div class="event">
+                    <div class="time">13:38</div>
+                    <div class="meta">Parkland Hospital</div>
+                    <div class="text">
+                      CBS meldet: „<strong>Präsident Kennedy ist um 13:00 Uhr CST verstorben.</strong>“ Eine Nation hält den Atem an – Flaggen auf Halbmast.
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Slide 2: Apollo 11 -->
+              <article class="slide" aria-label="Apollo 11 · 1969">
+                <h3>Beispiel · Apollo&nbsp;11 · 1969</h3>
+                <div class="timeline">
+                  <div class="event">
+                    <div class="time">09:32 EDT</div>
+                    <div class="meta">Cape Kennedy</div>
+                    <div class="text">
+                      <strong>Start von Saturn V</strong> – die Triebwerke zünden, der Boden vibriert. Millionen verfolgen den Countdown live.
+                    </div>
+                  </div>
+                  <div class="event">
+                    <div class="time">20:17 UTC</div>
+                    <div class="meta">Mondorbit · Mare Tranquillitatis</div>
+                    <div class="text">
+                      <strong>„The Eagle has landed.“</strong> – Landung des Lunar Module. Weltweit brechen Jubelwellen los.
+                    </div>
+                  </div>
+                  <div class="event">
+                    <div class="time">02:56 UTC</div>
+                    <div class="meta">Mondoberfläche</div>
+                    <div class="text">
+                      <strong>Erster Schritt</strong> – „ein kleiner Schritt…“ Die Menschheit erlebt einen gemeinsamen Moment der Nähe im All.
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Slide 3: Fall der Mauer -->
+              <article class="slide" aria-label="Fall der Berliner Mauer · 1989">
+                <h3>Beispiel · Fall der Berliner Mauer · 1989</h3>
+                <div class="timeline">
+                  <div class="event">
+                    <div class="time">18:53</div>
+                    <div class="meta">Pressekonferenz</div>
+                    <div class="text">
+                      <strong>„Sofort, unverzüglich.“</strong> – Schabowskis Worte verbreiten sich, Fragen liegen in der Luft.
+                    </div>
+                  </div>
+                  <div class="event">
+                    <div class="time">19:00</div>
+                    <div class="meta">Nachrichtensendungen</div>
+                    <div class="text">
+                      Eilmeldungen rollen: <strong>Grenzöffnung</strong>. Menschen strömen zu den Übergängen, die Stadt summt vor
+                      Erwartung.
+                    </div>
+                  </div>
+                  <div class="event">
+                    <div class="time">23:30</div>
+                    <div class="meta">Bornholmer Straße</div>
+                    <div class="text">
+                      Die Schranken gehen hoch – Tränen, Umarmungen, hupende Trabis. Ein Kontinent atmet auf.
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div class="controls">
+            <button class="btn" id="prev" aria-label="Vorheriges Beispiel" title="Zurück">‹</button>
+            <button class="btn" id="next" aria-label="Nächstes Beispiel" title="Weiter">›</button>
+          </div>
+
+          <div class="dots" role="tablist" aria-label="Beispiel auswählen">
+            <button class="dot" role="tab" aria-selected="true" aria-current="true" data-i="0"></button>
+            <button class="dot" role="tab" aria-selected="false" data-i="1"></button>
+            <button class="dot" role="tab" aria-selected="false" data-i="2"></button>
+          </div>
+
+          <p class="lead lead-muted">
+            In Zeitzeugen erlebst du solche Momente im <em>richtigen Takt</em> – wie damals, nur heute.
+          </p>
         </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="grid">
+            <div class="panel">
+              <h3>Was haben unsere Partner davon?</h3>
+              <ul>
+                <li><strong>Besucherwachstum &amp; Bindung</strong> — mehr Besucher und langfristige Verbundenheit.</li>
+                <li><strong>Relevante Reichweite</strong> — Zielgruppen digital erreichen, wiederkehren lassen.</li>
+                <li><strong>Einzigartiges Storytelling</strong> — Inhalte, die sich über Zeit entfalten.</li>
+              </ul>
+            </div>
+            <div class="panel">
+              <h3>Was haben die App-Nutzer davon?</h3>
+              <ul>
+                <li><strong>Erleben statt nacherzählen</strong> — Momente im echten Rhythmus.</li>
+                <li><strong>Mehr Tiefe, mehr Kontext</strong> — Originalquellen, Stimmen, Perspektiven.</li>
+                <li><strong>Weniger FOMO</strong> — Hinweise im richtigen Moment, ohne Hektik.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="coming">
+        <div class="container">
+          <div class="pill">🚀 Coming Soon</div>
+          <div class="contact">Fragen oder Interesse? Schreib uns an <a href="mailto:info@zeitzeugen.app">info@zeitzeugen.app</a></div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-content container">
+        <div>© <span id="year"></span> Zeitzeugen</div>
+        <nav class="footer-nav">
+          <a href="https://npxsoftware.eu">Impressum</a>
+          <a href="mailto:info@zeitzeugen.app">Kontakt</a>
+        </nav>
       </div>
-    </section>
+    </footer>
 
-    <section class="coming">
-      <div class="pill">🚀 Coming Soon</div>
-      <div class="contact">Fragen oder Interesse? Schreib uns an <a href="mailto:info@zeitzeugen.app">info@zeitzeugen.app</a></div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container" style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap">
-      <div>© <span id="year"></span> Zeitzeugen</div>
-      <nav style="display:flex;gap:16px">
-        <a href="https://npxsoftware.eu">Impressum</a>
-        <a href="mailto:info@zeitzeugen.app">Kontakt</a>
-      </nav>
-    </div>
-  </footer>
-
-  <script>
-  document.getElementById('year').textContent=new Date().getFullYear();
-
-  (function(){
-    const root = document.getElementById('examples');
-    const track = root.querySelector('.track');
-    const slides = [...track.children];
-    const prev = document.getElementById('prev');
-    const next = document.getElementById('next');
-    const dots = [...document.querySelectorAll('.dot')];
-
-    // Helper
-    const W = () => root.clientWidth;
-    const goTo = (i) => { i = Math.max(0, Math.min(slides.length-1, i)); const x = i * W(); track.scrollTo({left:x, behavior:'smooth'}); };
-
-    // Dots + Buttons
-    prev.addEventListener('click', ()=> goTo(getIndex()-1));
-    next.addEventListener('click', ()=> goTo(getIndex()+1));
-    dots.forEach((d,i)=> d.addEventListener('click', ()=> goTo(i)));
-
-    const io = new IntersectionObserver((entries)=>{
-      // finde die Slide mit größter Intersektion
-      let best = entries.reduce((a,b)=> (a.intersectionRatio>b.intersectionRatio? a : b));
-      const i = slides.indexOf(best.target);
-      dots.forEach((d,di)=>{ d.setAttribute('aria-current', di===i); d.setAttribute('aria-selected', di===i); });
-      prev.disabled = i===0; next.disabled = i===slides.length-1;
-    }, {root: track, threshold: [0.5, 0.75, 1]});
-    slides.forEach(s=> io.observe(s));
-
-    // Keyboard
-    root.addEventListener('keydown', (e)=>{ if(e.key==='ArrowRight') goTo(getIndex()+1); if(e.key==='ArrowLeft') goTo(getIndex()-1); });
-
-    // Bestimme Index aus Scrollposition
-    function getIndex(){ return Math.round(track.scrollLeft / W()); }
-
-    // Fix für iOS: beim Resize/Rotate korrekt snappen
-    let rTO; window.addEventListener('resize', ()=>{ clearTimeout(rTO); rTO=setTimeout(()=> goTo(getIndex()), 120); });
-  })();
-  </script>
-
-</body>
-
- <div class="bg-orb" aria-hidden="true"></div>
-  <div class="ribbon" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
-
+    <script src="assets/js/main.js" defer></script>
+  </body>
 </html>
