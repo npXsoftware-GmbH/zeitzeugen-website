@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Zeitzeugen – wie damals, nur heute</title>
+    <title>Rewind – Partner werden</title>
     <meta
       name="description"
-      content="Zeitzeugen kündigt sich an: eine neue Art, Geschichte zu erleben – emotional, kuratiert, zeitlich spürbar. Coming Soon."
+      content="Rewind ist die kuratierte Plattform für historische Stories. Erfahre, wie du als Partner Inhalte produzierst, veröffentlichst und ein neues Publikum erreichst."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -15,12 +15,10 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="assets/css/styles.css" />
-
     <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png" />
     <link rel="icon" type="image/svg+xml" href="icons/favicon.svg" />
     <link rel="shortcut icon" href="icons/favicon.png" />
-
     <meta name="theme-color" content="#FD42B2" />
   </head>
   <body>
@@ -28,251 +26,288 @@
 
     <header class="site-header">
       <div class="container header-grid">
-        <a class="brand" href="#top" aria-label="Zeitzeugen Start">
-          <span class="brand-badge">Z</span>
-          <span class="brand-word">Zeitzeugen</span>
+        <a class="brand" href="#start" aria-label="Rewind Start">
+          <span class="brand-badge">R</span>
+          <div class="brand-stack">
+            <span class="brand-word">Rewind</span>
+            <span class="brand-sub">by Zeitzeugen</span>
+          </div>
         </a>
-        <nav aria-label="Primäre Navigation" class="nav">
-          <a href="#prinzip">Prinzip</a>
-          <a href="#momente">Momente</a>
-          <a href="#newsletter">Updates</a>
+        <nav aria-label="Hauptnavigation" class="nav">
+          <a href="#partner">Warum Rewind</a>
+          <a href="#stories">Erlebnisse</a>
+          <a href="#journey">Zusammenarbeit</a>
+          <a href="#kontakt">Kontakt</a>
         </nav>
-        <a class="cta" href="#newsletter">Updates abonnieren</a> 
+        <a class="cta" href="#kontakt">Partner anfragen</a>
       </div>
     </header>
 
-    <main>
-      <section class="hero" id="top">
+    <main id="start">
+      <section class="hero" aria-labelledby="hero-title">
         <div class="container hero-grid">
           <div class="hero-copy">
-            <span class="eyebrow">Coming Soon</span>
-            <h1>Geschichte - wie damals, nur heute.</h1>
+            <span class="eyebrow">Partnerprogramm</span>
+            <h1 id="hero-title">Rewind verwandelt historische Inhalte in erlebbare Stories.</h1>
             <p>
-              Zeitzeugen kuratiert historische Ereignisse in Echtzeit – mit Stimmen, Stimmungen und Kontext, der im Takt der
-              Geschichte entfaltet wird.
+              Wir produzieren kuratierte Audio-Erlebnisse, die Zielgruppen in Echtzeit mitnehmen. Gemeinsam mit Museen,
+              Archiven und Medienhäusern schaffen wir neue Zugänge zu Geschichte – digital, immersiv, messbar.
             </p>
             <div class="hero-actions">
-              <a class="btn primary" href="#newsletter">Werde Partner</a>
+              <a class="btn primary" href="#kontakt">Jetzt anfragen</a>
+              <a class="btn ghost" href="#partner">Mehr erfahren</a>
             </div>
-            <dl class="hero-meta" aria-label="Highlights">
+            <dl class="hero-stats" aria-label="Kennzahlen">
               <div>
-                <dt>+200</dt>
-                <dd>kuratierte Stunden Audio &amp; Quellen</dd>
+                <dt>200+</dt>
+                <dd>kuratierte Stunden aus Archiven &amp; Zeitzeugnissen</dd>
               </div>
               <div>
-                <dt>+30</dt>
-                <dd>Partner aus Kultur &amp; Forschung</dd>
+                <dt>30+</dt>
+                <dd>Partner aus Kultur, Bildung &amp; Medien</dd>
               </div>
               <div>
                 <dt>1 Ziel</dt>
-                <dd>Geschichte erleben – wie damals, nur heute</dd>
+                <dd>Geschichte fühlbar machen – für neue Publika</dd>
               </div>
             </dl>
           </div>
-          <div class="hero-card" role="presentation" aria-hidden="true">
-            <div class="card-header">
-              <span>Live-Segment</span>
-              <span class="chip">Originalton</span>
+          <aside class="hero-panel" aria-label="Rewind Erlebnis">
+            <div class="panel-head">
+              <span class="panel-kicker">Originalton</span>
+              <span class="panel-meta">Live Chronik</span>
             </div>
-            <div class="card-body">
-              <p class="card-lead">„Wir sind live in Dallas.“</p>
-              <p class="card-sub">Die Chronik beginnt 20 Minuten vor dem Attentat auf JFK und begleitet den Tag minütlich.</p>
-              <ul class="card-list">
+            <div class="panel-body">
+              <p class="panel-title">„Wir sind live in Dallas.“</p>
+              <p class="panel-text">
+                Rewind startet 20 Minuten vor dem Attentat auf JFK und führt das Publikum Szene für Szene durch den Tag.
+              </p>
+              <ul class="panel-list">
                 <li>
                   <span class="time">11:38</span>
-                  <span class="desc">Love Field · Air Force One landet</span>
+                  <span class="detail">Air Force One landet – Jubel, Radioton, Reporter:innen vor Ort.</span>
                 </li>
                 <li>
                   <span class="time">12:30</span>
-                  <span class="desc">Eilmeldung · „Es sind Schüsse gefallen!“</span>
+                  <span class="detail">„Es sind Schüsse gefallen!“ – erste Eilmeldungen, Sirenen, Chaos.</span>
                 </li>
                 <li>
                   <span class="time">13:38</span>
-                  <span class="desc">CBS bestätigt den Tod Kennedys</span>
+                  <span class="detail">CBS bestätigt Kennedys Tod. Amerika hält den Atem an.</span>
                 </li>
               </ul>
             </div>
-            <div class="card-footer">
+            <div class="panel-foot">
               <span class="progress" aria-hidden="true"></span>
-              <span class="label">Spannung baut sich auf</span>
+              <span class="progress-label">Spannung baut sich auf</span>
             </div>
-          </div>
+          </aside>
         </div>
       </section>
 
-      <section class="principles" id="prinzip">
+      <section class="intro" id="partner" aria-labelledby="intro-title">
         <div class="container section-head">
           <div>
-            <span class="eyebrow">Unser Prinzip</span>
-            <h2>Kuratiert, emotional, zeitlich.</h2>
+            <span class="eyebrow">Warum Rewind</span>
+            <h2 id="intro-title">Kuratiert wie ein Museum, dynamisch wie ein Livestream.</h2>
           </div>
           <p>
-            Zeitzeugen übersetzt historische Augenblicke in eine klare, geführte Erlebnisreise. Jede Minute ist recherchiert,
-            Quellen verifiziert, jede Szene kuratiert – für einen Zugang, der Nähe schafft statt Distanz.
+            Rewind übersetzt historische Quellen in geführte Narrative. Aus Audio, Originalmaterial und Kontext schaffen wir
+            Episoden, die Nutzer:innen in Echtzeit begleiten – mobil, im Museum oder auf Events.
           </p>
         </div>
-        <div class="container cards-grid">
-          <article class="info-card">
-            <h3>Im Rhythmus der Ereignisse</h3>
+        <div class="container intro-grid">
+          <article class="intro-card">
+            <h3>Redaktionelle Exzellenz</h3>
             <p>
-              Erlebe Geschichte genau im Tempo, in dem sie passierte. Unsere Timeline lenkt dich wie ein feiner Taktgeber durch
-              Minuten, Stimmen und Wendepunkte.
+              Unser Team recherchiert, verifiziert und kondensiert Stoffe aus Archiven. Quellen bleiben transparent – für
+              Bildung, Wissenschaft und Dokumentation.
             </p>
           </article>
-          <article class="info-card">
-            <h3>Quellen, die Vertrauen schaffen</h3>
+          <article class="intro-card">
+            <h3>Emotionale Dramaturgie</h3>
             <p>
-              Archivmaterial, Interviews, Radiosendungen. Alles strukturiert, sauber verlinkt und für die Weiterarbeit
-              dokumentiert.
+              Jede Episode folgt dem Takt der Ereignisse. Spannungsbögen, Stimmen und Klangwelten sorgen für Nähe statt
+              Distanz.
             </p>
           </article>
-          <article class="info-card">
-            <h3>Emotion trifft Kontext</h3>
+          <article class="intro-card">
+            <h3>Messbare Wirkung</h3>
             <p>
-              Jede Szene kombiniert Primärquellen mit Kommentaren und visuellen Hinweisen – für einen emotionalen Zugang ohne
-              Pathos.
+              Wir liefern Insights zu Nutzung, Interaktion und Verweildauer. So erkennst du, welche Geschichten bewegen und
+              wo Potenzial steckt.
             </p>
           </article>
         </div>
       </section>
 
-      <section class="moments" id="momente" aria-labelledby="momente-heading">
-        <div class="container">
-          <div class="section-head compact">
-            <div>
-              <span class="eyebrow">Preview</span>
-              <h2 id="momente-heading">Drei Beispiele, die du fühlen kannst.</h2>
-            </div>
-            <p>Erlebe Geschichte – oder erzähle deine eigene. Werde Partner und bringe deine Geschichten auf unsere Plattform.</p>
+      <section class="experience" aria-labelledby="experience-title">
+        <div class="container experience-grid">
+          <div class="experience-copy">
+            <span class="eyebrow">Produkt</span>
+            <h2 id="experience-title">Die Rewind Experience</h2>
+            <p>
+              Nutzer:innen erleben Ereignisse in Echtzeit – begleitet von Originaltönen, Moderation und visuellen Impulsen.
+              Kurze Kapitel halten die Aufmerksamkeit hoch und geben Raum für Kontext.
+            </p>
+            <ul class="experience-list">
+              <li>
+                <span class="list-title">Timeline-Player</span>
+                <span class="list-desc">Segmentierte Audios, Marker und Notizen machen komplexe Stoffe zugänglich.</span>
+              </li>
+              <li>
+                <span class="list-title">Story Hubs</span>
+                <span class="list-desc">Begleitende Texte, Quellen und Zitate vertiefen das Verständnis.</span>
+              </li>
+              <li>
+                <span class="list-title">Distribution</span>
+                <span class="list-desc">Einbettbar auf euren Kanälen, teilbar in Social Media und vor Ort nutzbar.</span>
+              </li>
+            </ul>
           </div>
-          <div class="moment-scroll" role="list">
-            <article class="moment" role="listitem">
-              <header>
-                <span class="tag">1963</span>
-                <h3>JFK in Dallas</h3>
-              </header>
-              <ul>
-                <li>
-                  <span class="time">11:38</span>
-                  <span class="detail">Ankunft von Air Force One – Jubel, Kameras, Radioton.</span>
-                </li>
-                <li>
-                  <span class="time">12:30</span>
-                  <span class="detail">„Es sind Schüsse gefallen!“ – erste Sirenen, Reporter:innen live.</span>
-                </li>
-                <li>
-                  <span class="time">13:38</span>
-                  <span class="detail">CBS bestätigt Kennedys Tod. Die Stadt verstummt.</span>
-                </li>
-              </ul>
-            </article>
-            <article class="moment" role="listitem">
-              <header>
-                <span class="tag">1969</span>
-                <h3>Apollo 11</h3>
-              </header>
-              <ul>
-                <li>
-                  <span class="time">09:32</span>
-                  <span class="detail">Saturn V hebt ab. Countdown, Gänsehaut, Millionen Ohren.</span>
-                </li>
-                <li>
-                  <span class="time">20:17</span>
-                  <span class="detail">„The Eagle has landed.“ – Landung im Mare Tranquillitatis.</span>
-                </li>
-                <li>
-                  <span class="time">02:56</span>
-                  <span class="detail">Erster Schritt auf dem Mond. Ein globaler Atemzug.</span>
-                </li>
-              </ul>
-            </article>
-            <article class="moment" role="listitem">
-              <header>
-                <span class="tag">1989</span>
-                <h3>Fall der Mauer</h3>
-              </header>
-              <ul>
-                <li>
-                  <span class="time">18:53</span>
-                  <span class="detail">Schabowski verkündet: „Sofort, unverzüglich.“ Verwirrung.</span>
-                </li>
-                <li>
-                  <span class="time">19:00</span>
-                  <span class="detail">Eilmeldungen, Menschen strömen zu den Grenzübergängen.</span>
-                </li>
-                <li>
-                  <span class="time">23:30</span>
-                  <span class="detail">Bornholmer Straße öffnet. Tränen, Umarmungen, Trabi-Hupen.</span>
-                </li>
-              </ul>
-            </article>
+          <div class="experience-panel" aria-hidden="true">
+            <div class="screen">
+              <span class="screen-kicker">Preview</span>
+              <h3>Apollo 11</h3>
+              <p>Countdown, Funksprüche, globale Spannung – Rewind führt in 12 Kapiteln zum ersten Schritt auf dem Mond.</p>
+              <div class="screen-steps">
+                <span class="step active">Start</span>
+                <span class="step">Mondorbit</span>
+                <span class="step">Landung</span>
+                <span class="step">Rückkehr</span>
+              </div>
+            </div>
+            <div class="screen footnote">Originalmaterial lizenziert · Kontext von Rewind kuratiert</div>
           </div>
         </div>
       </section>
 
-      <section class="timeline-preview" aria-labelledby="timeline-heading">
-        <div class="container">
-          <div class="section-head compact">
-            <div>
-              <span class="eyebrow">Partner Journey</span>
-              <h2 id="timeline-heading">Deine Geschichte verdient ein digitales Publikum.</h2>
-            </div>
-            <p>
-              Wir kuratieren, orchestrieren und messen – Gemeinsam schaffen wir Reichweite mit Substanz.  
-              Unser Team begleitet dich Schritt für Schritt – von der Idee bis zum Launch auf der Zeitzeugen-Plattform.
-            </p>
+      <section class="stories" id="stories" aria-labelledby="stories-title">
+        <div class="container section-head compact">
+          <div>
+            <span class="eyebrow">Formate</span>
+            <h2 id="stories-title">Geschichten, die wirken.</h2>
           </div>
+          <p>
+            Ob Jubiläum, Ausstellung oder Podcast-Erweiterung – Rewind öffnet historische Perspektiven und schafft neue
+            Touchpoints.
+          </p>
+        </div>
+        <div class="container story-grid" role="list">
+          <article class="story-card" role="listitem">
+            <header>
+              <span class="tag">1963</span>
+              <h3>JFK in Dallas</h3>
+            </header>
+            <p>
+              Aus Radioreports, TV-Specials und Interviews entsteht eine dichte Chronik, die jede Minute miterleben lässt.
+            </p>
+          </article>
+          <article class="story-card" role="listitem">
+            <header>
+              <span class="tag">1969</span>
+              <h3>Apollo 11</h3>
+            </header>
+            <p>
+              Von der Saturn-V-Zündung bis zur Mondlandung. Rewind verdichtet die Mission zu einer immersiven Experience.
+            </p>
+          </article>
+          <article class="story-card" role="listitem">
+            <header>
+              <span class="tag">1989</span>
+              <h3>Fall der Mauer</h3>
+            </header>
+            <p>
+              Augenzeug:innen, Archivmaterial und Live-Schalten zeigen die Stunden, die Europa verändert haben.
+            </p>
+          </article>
+        </div>
+      </section>
 
-          <div class="timeline-board" role="presentation" aria-hidden="true">
-            <div class="lane">
-              <span class="marker"></span>
-              <div class="entry">
-                <span class="time">1. Kick-off & Zielbild</span>
-                <p>Inhalte, Zielgruppen und Wirkung klären. Scope, Rollen, Timing stehen – schnell und schlank.</p>
-              </div>
-              <div class="entry">
-                <span class="time">2. Storyboard & Taktung</span>
-                <p>Wir übersetzen deine Geschichte in den Zeitzeugen-Flow: Momente, Trigger, Originaltöne.</p>
-              </div>
-              <div class="entry">
-                <span class="time">3. Build & Playtest</span>
-                <p>Unsere Experience-Engine orchestriert Audio, Text, Visuals. Iterationen mit eurem Team.</p>
-              </div>
+      <section class="journey" id="journey" aria-labelledby="journey-title">
+        <div class="container section-head">
+          <div>
+            <span class="eyebrow">Zusammenarbeit</span>
+            <h2 id="journey-title">So arbeiten wir mit Partnern.</h2>
+          </div>
+          <p>
+            Von der Idee bis zur Premiere begleiten wir euch eng. Prozesse bleiben schlank, Kommunikation transparent.
+          </p>
+        </div>
+        <div class="container journey-grid" role="presentation">
+          <div class="lane">
+            <div class="lane-marker"></div>
+            <div class="lane-item">
+              <span class="lane-step">Kick-off</span>
+              <p>Gemeinsame Zieldefinition, Auswahl der Quellen und Audience Mapping.</p>
             </div>
-
-            <div class="lane">
-              <span class="marker"></span>
-              <div class="entry">
-                <span class="time">4. Premiere</span>
-                <p>Live auf Zeitzeugen: kuratiert, teilbar, im echten Zeitzeugen-Takt – Bühne frei für eure Geschichte!</p>
-              </div>
-              <div class="entry">
-                <span class="time">5. Insights & Statistiken</span>
-                <p>Feedback, Likes/Dislikes und Nutzungsdaten zeigen, was berührt. Wir schärfen Inhalte und Distribution.</p>
-              </div>
-              <div class="entry">
-                <span class="time">6. Nächste Geschichte</span>
-                <p>Auf Basis der Insights planen wir das nächste Kapitel – schneller, fokussierter, wirkungsvoller.</p>
-              </div>
+            <div class="lane-item">
+              <span class="lane-step">Storyboard</span>
+              <p>Wir kuratieren Timeline, Dramaturgie und Sprecher:innen – abgestimmt auf eure Ziele.</p>
+            </div>
+            <div class="lane-item">
+              <span class="lane-step">Production</span>
+              <p>Audio-Produktion, Sounddesign, Visuals. Iterationen im engen Austausch mit eurem Team.</p>
+            </div>
+          </div>
+          <div class="lane">
+            <div class="lane-marker"></div>
+            <div class="lane-item">
+              <span class="lane-step">Launch</span>
+              <p>Veröffentlichung auf Rewind – integriert in eure Kommunikationskanäle.</p>
+            </div>
+            <div class="lane-item">
+              <span class="lane-step">Insights</span>
+              <p>Wir liefern Daten zu Nutzung, Feedback und Engagement für Reporting und Optimierung.</p>
+            </div>
+            <div class="lane-item">
+              <span class="lane-step">Next Chapter</span>
+              <p>Gemeinsam planen wir Folgeformate oder Serien, basierend auf den Insights.</p>
             </div>
           </div>
         </div>
       </section>
 
-
-      <section class="newsletter" id="newsletter" role="region" aria-labelledby="newsletter-title">
-        <div class="container newsletter-card">
-          <div class="copy">
-            <span class="eyebrow">Für Partner</span>
-            <h2 id="newsletter-title">Deine Geschichte. Unsere Plattform.</h2>
-            <p>Die Beta startet bald – als Partner kannst du dich schon jetzt melden.</p>
+      <section class="impact" aria-labelledby="impact-title">
+        <div class="container impact-grid">
+          <div>
+            <span class="eyebrow">Impact</span>
+            <h2 id="impact-title">Warum Partner mit Rewind wachsen.</h2>
             <p>
-              Schreib uns an – wir antworten persönlich.
+              Rewind verbindet journalistische Sorgfalt mit einer Experience, die Menschen bindet. Ausstellungen, Podcasts,
+              Festivals oder Bildungsangebote werden verlängert und begleitet.
             </p>
-            <p class="copy-secondary">Nur informiert bleiben? Wir geben Bescheid, sobald die Beta-Liste öffnet.</p>
           </div>
-          <div class="newsletter-aside" aria-labelledby="newsletter-contact">
-            <span class="aside-label" id="newsletter-contact">Partner-Kontakt</span>
+          <ul class="impact-list">
+            <li>
+              <span class="impact-number">72%</span>
+              <span class="impact-text">durchschnittliche Completion Rate über alle Episoden hinweg.</span>
+            </li>
+            <li>
+              <span class="impact-number">15 min</span>
+              <span class="impact-text">durchschnittliche Verweildauer pro Session auf Rewind Experiences.</span>
+            </li>
+            <li>
+              <span class="impact-number">+48%</span>
+              <span class="impact-text">Interaktion mit weiterführenden Quellen nach Abschluss einer Episode.</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="contact" id="kontakt" aria-labelledby="contact-title">
+        <div class="container contact-card">
+          <div class="contact-copy">
+            <span class="eyebrow">Kontakt</span>
+            <h2 id="contact-title">Lass uns deine Geschichte erzählen.</h2>
+            <p>
+              Du möchtest ein historisches Ereignis modern erlebbar machen oder bestehende Inhalte neu kuratieren? Wir freuen
+              uns über eine kurze Nachricht.
+            </p>
+            <p class="contact-note">Wir melden uns persönlich und vereinbaren einen Termin für ein Kennenlernen.</p>
+          </div>
+          <div class="contact-aside" aria-labelledby="contact-label">
+            <span class="aside-label" id="contact-label">Partner-Kontakt</span>
             <a class="aside-mail" href="mailto:partner@zeitzeugen.app">partner@zeitzeugen.app</a>
             <p class="aside-note">Kurzer Ping genügt.</p>
           </div>
@@ -282,13 +317,18 @@
 
     <footer class="site-footer">
       <div class="container footer-flex">
-        <small>© Zeitzeugen App</small>
+        <small>© <span id="year">2024</span> Zeitzeugen</small>
         <div class="footer-links">
           <a href="mailto:info@zeitzeugen.app">info@zeitzeugen.app</a>
-          <a href="#top">Nach oben</a>
+          <a href="#start">Nach oben</a>
         </div>
       </div>
     </footer>
-
+    <script>
+      const yearEl = document.getElementById('year');
+      if (yearEl) {
+        yearEl.textContent = new Date().getFullYear().toString();
+      }
+    </script>
   </body>
 </html>
